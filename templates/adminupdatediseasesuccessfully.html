@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MedPR</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="C:\Users\intel\Desktop\Medicine Preciption\static\style.css">
+    <link href="login.html">
+    <link href="signup.html">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="modal show" id="myModal" role="dialog">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Successfully Updated</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Your Data Updated .</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="/adminupdatedatabase"><button type="button" class="btn btn-primary"
+                            data-dismiss="modal">Continue</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #D1EECC;">
+        <!-- Navbar content -->
+        <a class="navbar-brand" href="#">
+            <img src="C:\Users\intel\Desktop\Medicine Preciption\static\css\logo.png" width="30" height="30" class="d-inline-block align-top " alt=""> MedPR
+        </a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminpannelui">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminmanageuser">Manage Users </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminadddatabase">Add to Database</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminshowdatabase">Show Database </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminupdatedatabase">Update Database</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/admindeletedatabase">Delete Database</a>
+                </li>
+            </ul>
+            <p>Welcome to Admin Pannel!! Mr {{user.name}} </p><br>
+        </div>
+        <div>
+            <a href="/index"><button type="button" class="btn btn-light" style="margin-left: 35px">Logout</button></a>
+        </div>
+    </nav>
+    <div class="container" id="accordion">
+        <div class="navbar" id="sub-navbar">
+            <ul class="sub-nav" type="none">
+                <li>
+                    <button class="btn " data-toggle="collapse" href="#CollapseExample1" aria-expanded="false" aria-controls="CollapseExample1" checked> Update Diseases Name </button>
+                </li>
+                <li>
+                    <button class="btn collapsed" data-toggle="collapse" href="#CollapseExample2" aria-expanded="false" aria-controls="CollapseExample2"> Update Medicine </button>
+                </li>
+            </ul>
+        </div>
+        <div class="col">
+            <div class="collapse " id="CollapseExample1" data-parent="#accordion">
+                <div class="card card-body">
+                    <form action="{{url_for('adminupdatedisease')}}" method="POST">
+                        <h2 class="text-center"> Update Diseases Name </h2><br><br>
+                        <div class="row">
+                            <div class="col ">
+                                <input type="text" class="form-control col-md-5 new-input " name="diseasename1" placeholder="Old Disease name"><br><br>
+                                <input type="text" class="form-control col-md-5 new-input " name="diseasename2" placeholder="New Disease name"><br><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" href="#" style="margin-left: 890px; " class="btn btn-info ">Update Disease</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="collapse " id="CollapseExample2" data-parent="#accordion">
+                <div class="card card-body">
+                    <form action="{{url_for('adminupdatemedicine')}}" method="POST">
+                        <h2 class="text-center">Update Medicine </h2><br><br>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control col-md-5 new-input" name="medicine" placeholder="Old Medicine to Update" /><br><br>
+                                <input type="text" class="form-control col-md-5 new-input" name="newmedicine" placeholder="New Medicine " /><br><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button type="sumbit" href="#" style="margin-left: 880px; " class="btn btn-info "> Update Medicine </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $('#myModal').modal('show');
+    </script>
+</body>
+
+<script>
+    function manage(txt, type) {
+        var bt = document.getElementById(type);
+        var ele = document.getElementsByClassName(type);
+        console.log(type)
+            // LOOP THROUGH EACH ELEMENT.
+        for (i = 0; i < ele.length; i++) {
+            // CHECK THE ELEMENT TYPE.
+            if (ele[i].value == '') {
+                bt.disabled = true; // Disable the button.
+                return false;
+            } else {
+                bt.disabled = false; // Enable the button.
+            }
+        }
+    }
+</script>
+
+</html>

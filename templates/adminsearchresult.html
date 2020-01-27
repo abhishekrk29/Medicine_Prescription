@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <title>Search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="C:\Users\intel\Desktop\Medicine Preciption\static\style.css">
+    <link href="login.html">
+    <link href="signup.html">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #D1EECC;">
+        <!-- Navbar content -->
+        <a class="navbar-brand" href="#">
+            <img src="C:\Users\intel\Desktop\Medicine Preciption\static\css\logo.png" width="30" height="30" class="d-inline-block align-top " alt=""> MedPR
+        </a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminpannelui">Home </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminmanageuser">Manage Users</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminadddatabase">Add to Database</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminshowdatabase">Show Database </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminupdatedatabase">Update Database</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/admindeletedatabase">Delete Database</a>
+                </li>
+            </ul>
+            <p>Welcome to Admin Pannel!! Mr {{user.name}} </p><br>
+        </div>
+        <div>
+            <a href="/index"><button type="button" class="btn btn-light" style="margin-left: 35px">Logout</button></a>
+        </div>
+    </nav>
+    <h2>
+        <p align="Center">User Details Are :-</p>
+    </h2>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name Of User</th>
+                <th scope="col">Password </th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

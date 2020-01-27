@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MedPR</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="C:\Users\intel\Desktop\Medicine Preciption\static\style.css">
+    <link href="login.html">
+    <link href="signup.html">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #D1EECC;">
+        <!-- Navbar content -->
+        <a class="navbar-brand" href="#">
+            <img src="C:\Users\intel\Desktop\Medicine Preciption\static\css\logo.png" width="30" height="30" class="d-inline-block align-top " alt=""> MedPR
+        </a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminpannelui">Home </span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminmanageuser">Manage Users </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminadddatabase">Add to Database</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminshowdatabase">Show Database </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminupdatedatabase">Update Database</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/admindeletedatabase">Delete Database</a>
+                </li>
+            </ul>
+            <p>Welcome to Admin Pannel!! Mr {{user.name}} </p><br>
+        </div>
+        <div>
+            <a href="/index"><button type="button" class="btn btn-light" style="margin-left: 35px">Logout</button></a>
+        </div>
+    </nav>
+    <h2>
+        <p align="Center">Details Of Disease And Its Medicine :-</p>
+    </h2>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Disease Name</th>
+                <th scope="col">Medicine 1 </th>
+                <th scope="col">Medicine 2</th>
+                <th scope="col">Medicine 3 </th>
+                <th scope="col">Medicine 4</th>
+                <th scope="col">Medicine 5</th>
+                <th scope="col">Medicine 6</th>
+                <th scope="col">Medicine 7</th>
+                <th scope="col">Medicine 8</th>
+                <th scope="col">Medicine 9</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+                <td>{{row[6]}}</td>
+                <td>{{row[7]}}</td>
+                <td>{{row[8]}}</td>
+                <td>{{row[9]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+<script>
+    function manage(txt, type) {
+        var bt = document.getElementById(type);
+        var ele = document.getElementsByClassName(type);
+        console.log(type)
+            // LOOP THROUGH EACH ELEMENT.
+        for (i = 0; i < ele.length; i++) {
+            // CHECK THE ELEMENT TYPE.
+            if (ele[i].value == '') {
+                bt.disabled = true; // Disable the button.
+                return false;
+            } else {
+                bt.disabled = false; // Enable the button.
+            }
+        }
+    }
+</script>
+
+</html>

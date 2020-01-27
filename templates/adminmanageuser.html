@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MedPR</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="C:\Users\intel\Desktop\Medicine Preciption\static\style.css">
+    <link href="login.html">
+    <link href="signup.html">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #D1EECC;">
+        <!-- Navbar content -->
+        <a class="navbar-brand" href="#">
+            <img src="C:\Users\intel\Desktop\Medicine Preciption\static\css\logo.png" width="30" height="30" class="d-inline-block align-top " alt=""> MedPR
+        </a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminpannelui">Home </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminmanageuser">Manage Users </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminadddatabase">Add to Database</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminshowdatabase">Show Database </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/adminupdatedatabase">Update Database</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/admindeletedatabase">Delete Database</a>
+                </li>
+            </ul>
+            <p>Welcome to Admin Pannel </p><br>
+        </div>
+        <div>
+            <a href="/index"><button type="button" class="btn btn-light" style="margin-left: 35px">Logout</button></a>
+        </div>
+    </nav>
+    <div class="container" id="accordion">
+        <div class="navbar" id="sub-navbar">
+            <ul class="sub-nav" type="none">
+                <li>
+                    <button class="btn " data-toggle="collapse" href="#CollapseExample1" aria-expanded="false" aria-controls="CollapseExample1" checked>Show</button>
+                </li>
+                <li>
+                    <button class="btn collapsed" data-toggle="collapse" href="#CollapseExample2" aria-expanded="false" aria-controls="CollapseExample2">Search</button>
+                </li>
+                <li>
+                    <button class="btn collapsed" data-toggle="collapse" href="#CollapseExample3" aria-expanded="false" aria-controls="CollapseExample3">Add </button>
+                </li>
+                <li>
+                    <button class="btn collapsed" data-toggle="collapse" href="#CollapseExample4" aria-expanded="false" aria-controls="CollapseExample4">Update</button>
+                </li>
+                <li>
+                    <button class="btn collapsed" data-toggle="collapse" href="#CollapseExample5" aria-expanded="false" aria-controls="CollapseExample5">Delete</button>
+                </li>
+            </ul>
+        </div>
+        <div class="col">
+            <div class="collapse " id="CollapseExample1" data-parent="#accordion">
+                <div class="card card-body">
+                    <form method="POST" action="{{url_for('adminshowalluserresult')}}">
+                        <h2 class="text-center"> Show Users </h2><br>
+                        <div class="row">
+                            <div class="col ">
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" style="margin-left: 450px; " class="btn btn-info ">Show All User</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="collapse" id="CollapseExample2" data-parent="#accordion">
+                <div class="card card-body">
+                    <form action="{{url_for('adminsearchuser')}}" method="POST">
+                        <h2 class="text-center"> Search User </h2><br><br>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control col-md-5 new-input" name="email" placeholder="Email To Search" /><br><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col ">
+                                <button type="submit" href="#" style="margin-left: 900px; " class="btn btn-info ">Search
+                                    User</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="collapse " id="CollapseExample3" data-parent="#accordion">
+                <div class="card card-body">
+                    <form action="{{url_for('adminadduser')}}" method="POST">
+                        <h2 class="text-center"> Add User </h2><br><br>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control col-md-5 new-input" name="fname" placeholder="Full Name" /><br><br>
+                                <input type="text" class="form-control col-md-3 new-input" name="pword1" placeholder="Password" /><br><br>
+                                <input type="text" class="form-control col-md-3 new-input" name="pword2" placeholder="Password" /><br><br>
+                                <input type="text" class="form-control col-md-5 new-input" name="email" placeholder="Email" /><br><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col ">
+                                <button type="submit" href="#" style="margin-left: 900px; " class="btn btn-info ">Add User</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="collapse " id="CollapseExample4" data-parent="#accordion">
+                <div class="card card-body">
+                    <form action="{{url_for('adminupdateuser')}}" method="POST">
+                        <h2 class="text-center"> Update User </h2>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control col-md-5 new-input" name="email1" placeholder="Email Of Already Register User" /><br><br>
+                                <input type="text" class="form-control col-md-5 new-input" name="fname" placeholder="New Full Name" /><br>
+                                <input type="text" class="form-control col-md-3 new-input" name="pword1" placeholder="New Password" /><br>
+                                <input type="text" class="form-control col-md-3 new-input" name="pword2" placeholder="New Password" /><br>
+                                <input type="text" class="form-control col-md-5 new-input" name="email2" placeholder="New Email" /><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" href="#" class="btn btn-info " style="margin-left: 900px;">Update User</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="collapse " id="CollapseExample5" data-parent="#accordion">
+                <div class="card card-body">
+                    <form action="{{url_for('admindeleteuser')}}" method="POST">
+                        <h2 class="text-center">Delete User </h2><br><br>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control col-md-5 new-input" name="email" placeholder="Email Of Already Register User" /><br><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" href="#" class="btn btn-info " style="margin-left: 900px;">Delete User</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+<script>
+    function manage(txt, type) {
+        var bt = document.getElementById(type);
+        var ele = document.getElementsByClassName(type);
+        console.log(type)
+            // LOOP THROUGH EACH ELEMENT.
+        for (i = 0; i < ele.length; i++) {
+            // CHECK THE ELEMENT TYPE.
+            if (ele[i].value == '') {
+                bt.disabled = true; // Disable the button.
+                return false;
+            } else {
+                bt.disabled = false; // Enable the button.
+            }
+        }
+    }
+</script>
+
+</html>
